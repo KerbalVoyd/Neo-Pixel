@@ -36,11 +36,18 @@ int main(void)
     // Code in this while loop runs repeatedly.
     while(1)
 	{
-        int prevNum;
-        int leftNum = 4;
-        int prevLeftNum;
+        int prevNum = 4;
+        int leftNum = 3;
+        int prevLeftNum = 4;
         // If SW2 is pressed, make a flashy light pattern
-        for (int i = 4; i < 9; i++) {
+//        for (int i3 = 0; i3 < 256; i3++) {
+//                
+//                redArray[4]++;
+//                neopixel_fill_a(9, redArray, greenArray, blueArray);
+//                
+//                __delay_us(500);
+//            }
+        for (int i = 5; i = 8; i++) {
             for (int ii = 0; ii < 256; ii++) {
                 
                 redArray[i]++;

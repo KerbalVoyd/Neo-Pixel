@@ -4115,11 +4115,11 @@ int main(void)
 
     while(1)
  {
-        int prevNum;
-        int leftNum = 4;
-        int prevLeftNum;
-
-        for (int i = 4; i < 9; i++) {
+        int prevNum = 4;
+        int leftNum = 3;
+        int prevLeftNum = 4;
+# 50 "Intro-1-Input-Ouput.c"
+        for (int i = 5; i = 8; i++) {
             for (int ii = 0; ii < 256; ii++) {
 
                 redArray[i]++;
