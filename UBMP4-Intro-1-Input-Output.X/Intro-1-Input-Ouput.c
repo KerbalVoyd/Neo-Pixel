@@ -21,9 +21,12 @@
 // TODO Set linker code offset to '800' under "Additional options" pull-down.
 
 // The main function is required, and the program begins executing from here.
+void neopixel_send(unsigned char colour);
+void neopixel_fill_a(unsigned char leds, unsigned char red[], unsigned char green[], unsigned char blue[]);
 void neopixel_fill(unsigned char leds, unsigned char red, unsigned char green, unsigned char blue);
 unsigned char leds;
 unsigned char red, green, blue;
+unsigned char redArray[9], greenArray[9], blueArray[9];
 int main(void)
 {
     // Configure oscillator and I/O ports. These functions run once at start-up.
@@ -33,10 +36,26 @@ int main(void)
     // Code in this while loop runs repeatedly.
     while(1)
 	{
+        int prevNum;
+        int leftNum = 4;
+        int prevLeftNum;
         // If SW2 is pressed, make a flashy light pattern
-        neopixel_fill(9, 0, 0, 255);
-        
-        __delay_ms(10);
+        for (int i = 4; i < 9; i++) {
+            for (int ii = 0; ii < 256; ii++) {
+                
+                redArray[i]++;
+                redArray[leftNum]++;
+                redArray[prevNum]--;
+                redArray[prevLeftNum]--;
+                neopixel_fill_a(9, redArray, greenArray, blueArray);
+                
+                __delay_us(500);
+            }
+            prevLeftNum = leftNum;
+            leftNum--;
+            prevNum = i;
+            
+        }
         // Add code for your Program Analysis and Programming Activities here:
 
         // Activate bootloader if SW1 is pressed.
@@ -47,48 +66,35 @@ int main(void)
     }
 }
 
-void neopixel_fill(unsigned char leds, unsigned char red, unsigned char green, unsigned char blue)
+void neopixel_fill_a(unsigned char leds, unsigned char red[], unsigned char green[], unsigned char blue[]) {
+    int ledNum = 0;
+    for(; ledNum != leds; ledNum++) {
+        neopixel_send(green[ledNum]);
+        neopixel_send(red[ledNum]);
+        neopixel_send(blue[ledNum]);
+    }
+}
+
+void neopixel_fill(unsigned char leds, unsigned char red, unsigned char green, unsigned char blue) {
+    for (; leds != 0; leds--) {
+        neopixel_send(green);
+        neopixel_send(red);
+        neopixel_send(blue);
+    }
+    
+}
+
+void neopixel_send(unsigned char colour)
 {
-    unsigned char oldRed = red;
-    unsigned char oldGreen = green;
-    unsigned char oldBlue = blue;
-    for(leds; leds != 0; leds --)
-    {
-        for(unsigned char bits = 8; bits != 0; bits --)
-        {
-            H1OUT = 1;
-            if((green & 0b10000000) == 0)
-            {
-                H1OUT = 0;
-            }
-            NOP();
-            H1OUT = 0;
-            green = green << 1;
-        }
-        green = oldGreen;
     for(unsigned char bits = 8; bits != 0; bits --)
     {
         H1OUT = 1;
-        if((red & 0b10000000) == 0)
+        if((colour & 0b10000000) == 0)
         {
             H1OUT = 0;
         }
         NOP();
         H1OUT = 0;
-        red = red << 1;
-    }
-    red = oldRed;
-    for(unsigned char bits = 8; bits != 0; bits --)
-    {
-        H1OUT = 1;
-        if((blue & 0b10000000) == 0)
-        {
-            H1OUT = 0;
-        }
-        NOP();
-        H1OUT = 0;
-        blue = blue << 1;
-    }
-    blue = oldBlue;
+        colour = colour << 1;
     }
 }
