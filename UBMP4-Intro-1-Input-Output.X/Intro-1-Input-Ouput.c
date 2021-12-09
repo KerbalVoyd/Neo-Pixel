@@ -14,7 +14,7 @@
 #include    "xc.h"              // Microchip XC8 compiler include file
 #include    "stdint.h"          // Include integer definitions
 #include    "stdbool.h"         // Include Boolean (true/false) definitions
-
+#include    <math.h>            //ez maths
 #include    "UBMP4.h"           // Include UBMP4 constants and functions
 
 // TODO Set linker ROM ranges to 'default,-0-7FF' under "Memory model" pull-down.
@@ -24,45 +24,79 @@
 void neopixel_send(unsigned char colour);
 void neopixel_fill_a(unsigned char leds, unsigned char red[], unsigned char green[], unsigned char blue[]);
 void neopixel_fill(unsigned char leds, unsigned char red, unsigned char green, unsigned char blue);
+
+
+
+#define pixelLength 9
+#define halfLength (pixelLength/2)+1
+#define speed 1
+
 unsigned char leds;
 unsigned char red, green, blue;
-unsigned char redArray[9], greenArray[9], blueArray[9];
+unsigned char redArray[pixelLength+1], greenArray[pixelLength+1], blueArray[pixelLength+1];
+
+
 int main(void)
 {
     // Configure oscillator and I/O ports. These functions run once at start-up.
     OSC_config();               // Configure internal oscillator for 48 MHz
     UBMP4_config();             // Configure on-board UBMP4 I/O devices
-	
+    
+    
     // Code in this while loop runs repeatedly.
     while(1)
 	{
-        int prevNum = 4;
-        int leftNum = 3;
-        int prevLeftNum = 4;
+        
+        int prevNum = halfLength;
+        int leftNum = halfLength-1;
+        int prevLeftNum = halfLength;
         // If SW2 is pressed, make a flashy light pattern
-//        for (int i3 = 0; i3 < 256; i3++) {
-//                
-//                redArray[4]++;
-//                neopixel_fill_a(9, redArray, greenArray, blueArray);
-//                
-//                __delay_us(500);
-//            }
-        for (int i = 5; i = 8; i++) {
-            for (int ii = 0; ii < 256; ii++) {
+
+        for (int i = halfLength; i <= (pixelLength); i++) {
+            for (int ii = 0; ii < 255-(255%speed); ii++) {
                 
-                redArray[i]++;
-                redArray[leftNum]++;
-                redArray[prevNum]--;
-                redArray[prevLeftNum]--;
-                neopixel_fill_a(9, redArray, greenArray, blueArray);
+                redArray[i]+=speed;
+                redArray[leftNum]+=speed;
+                redArray[prevNum]-=speed;
                 
-                __delay_us(500);
+                if (prevLeftNum != halfLength) { 
+                    redArray[prevLeftNum]-=speed;
+                }
+                neopixel_fill_a(pixelLength, redArray, greenArray, blueArray);
+                
+                __delay_us(1000);
             }
             prevLeftNum = leftNum;
-            leftNum--;
+            leftNum-=speed;
             prevNum = i;
             
         }
+        leftNum = -1;
+        prevLeftNum = -1;
+        for (int i3 = pixelLength; i3 >= halfLength; i3--) {
+            for (int i4 = 0; i4 < 255-(255%speed); i4++) {
+                
+                redArray[i3]+=speed;
+                //if (leftNum != halfLength) {
+                    redArray[leftNum]+=speed;
+                //}
+                redArray[prevNum]-=speed;
+
+                if (prevLeftNum != halfLength) {
+                    
+                    redArray[prevLeftNum]-=speed;
+                }
+                neopixel_fill_a(pixelLength, redArray, greenArray, blueArray);
+                
+                __delay_us(1000);
+            }
+            prevLeftNum = leftNum;
+            leftNum+=speed;
+            prevNum = i3;
+            
+        }
+        
+
         // Add code for your Program Analysis and Programming Activities here:
 
         // Activate bootloader if SW1 is pressed.
