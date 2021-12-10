@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.32 build 20210201212658 
-                                                                                               Thu Dec 09 10:46:10 2021
+                                                                                               Fri Dec 10 10:32:35 2021
 
 Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1 
      1                           	processor	16F1459
@@ -386,13 +386,13 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    372  0FF7  3000               	movlw	high __pbssBANK0
    373  0FF8  0085               	movwf	5
    374  0FF9  3022               	movlw	34
-   375  0FFA  318E  266A  318F   	fcall	clear_ram0
+   375  0FFA  318E  266C  318F   	fcall	clear_ram0
    376  0FFD                     end_of_initialization:	
    377                           ;End of C runtime variable initialization code
    378                           
    379  0FFD                     __end_of__initialization:
    380  0FFD  0020               	movlb	0
-   381  0FFE  318E  2EEA         	ljmp	_main	;jump to C main() function
+   381  0FFE  318E  2EEC         	ljmp	_main	;jump to C main() function
    382                           
    383                           	psect	bssBANK0
    384  0020                     __pbssBANK0:
@@ -412,17 +412,17 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    398  0038                     	ds	10
    399                           
    400                           	psect	clrtext
-   401  0E6A                     clear_ram0:	
+   401  0E6C                     clear_ram0:	
    402                           ;	Called with FSR0 containing the base address, and
    403                           ;	WREG with the size to clear
    404                           
-   405  0E6A  0064               	clrwdt	;clear the watchdog before getting into this loop
-   406  0E6B                     clrloop0:
-   407  0E6B  0180               	clrf	0	;clear RAM location pointed to by FSR
-   408  0E6C  3101               	addfsr 0,1
-   409  0E6D  0B89               	decfsz	9,f	;Have we reached the end of clearing yet?
-   410  0E6E  2E6B               	goto	clrloop0	;have we reached the end yet?
-   411  0E6F  3400               	retlw	0	;all done for this memory range, return
+   405  0E6C  0064               	clrwdt	;clear the watchdog before getting into this loop
+   406  0E6D                     clrloop0:
+   407  0E6D  0180               	clrf	0	;clear RAM location pointed to by FSR
+   408  0E6E  3101               	addfsr 0,1
+   409  0E6F  0B89               	decfsz	9,f	;Have we reached the end of clearing yet?
+   410  0E70  2E6D               	goto	clrloop0	;have we reached the end yet?
+   411  0E71  3400               	retlw	0	;all done for this memory range, return
    412                           
    413                           	psect	cstackCOMMON
    414  0070                     __pcstackCOMMON:
@@ -520,7 +520,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    506  004E                     	ds	2
    507                           
    508                           	psect	maintext
-   509  0EEA                     __pmaintext:	
+   509  0EEC                     __pmaintext:	
    510 ;;
    511 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
    512 ;;
@@ -568,228 +568,228 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    549                           
    550                           
    551                           ;psect for function _main
-   552  0EEA                     _main:
-   553  0EEA                     l853:	
+   552  0EEC                     _main:
+   553  0EEC                     l859:	
    554                           ;incstack = 0
    555                           ; Regs used in _main: [wreg+fsr1l+fsr1h+status,2+status,0+pclath+cstack]
    556                           
    557                           
    558                           ;Intro-1-Input-Ouput.c: 42:     OSC_config();
-   559  0EEA  318E  2670  318E   	fcall	_OSC_config
+   559  0EEC  318E  2672  318E   	fcall	_OSC_config
    560                           
    561                           ;Intro-1-Input-Ouput.c: 43:     UBMP4_config();
-   562  0EED  318E  2697  318E   	fcall	_UBMP4_config
-   563  0EF0                     l855:
+   562  0EEF  318E  2699  318E   	fcall	_UBMP4_config
+   563  0EF2                     l861:
    564                           
-   565                           ;Intro-1-Input-Ouput.c: 48:  {;Intro-1-Input-Ouput.c: 50:         int prevNum = (9/2)+1;
-   566  0EF0  3005               	movlw	5
-   567  0EF1  0020               	movlb	0	; select bank0
-   568  0EF2  00C6               	movwf	main@prevNum
-   569  0EF3  3000               	movlw	0
-   570  0EF4  00C7               	movwf	main@prevNum+1
-   571  0EF5                     l857:
+   565                           ;Intro-1-Input-Ouput.c: 48:  {;Intro-1-Input-Ouput.c: 50:         int prevNum = (9/2);
+   566  0EF2  3004               	movlw	4
+   567  0EF3  0020               	movlb	0	; select bank0
+   568  0EF4  00C6               	movwf	main@prevNum
+   569  0EF5  3000               	movlw	0
+   570  0EF6  00C7               	movwf	main@prevNum+1
+   571  0EF7                     l863:
    572                           
-   573                           ;Intro-1-Input-Ouput.c: 51:         int leftNum = (9/2)+1 -1;
-   574  0EF5  3004               	movlw	4
-   575  0EF6  00CC               	movwf	main@leftNum
-   576  0EF7  3000               	movlw	0
-   577  0EF8  00CD               	movwf	main@leftNum+1
-   578  0EF9                     l859:
+   573                           ;Intro-1-Input-Ouput.c: 51:         int leftNum = (9/2)-1;
+   574  0EF7  3003               	movlw	3
+   575  0EF8  00CC               	movwf	main@leftNum
+   576  0EF9  3000               	movlw	0
+   577  0EFA  00CD               	movwf	main@leftNum+1
+   578  0EFB                     l865:
    579                           
-   580                           ;Intro-1-Input-Ouput.c: 52:         int prevLeftNum = (9/2)+1;
-   581  0EF9  3005               	movlw	5
-   582  0EFA  00CE               	movwf	main@prevLeftNum
-   583  0EFB  3000               	movlw	0
-   584  0EFC  00CF               	movwf	main@prevLeftNum+1
-   585  0EFD                     l861:
+   580                           ;Intro-1-Input-Ouput.c: 52:         int prevLeftNum = (9/2);
+   581  0EFB  3004               	movlw	4
+   582  0EFC  00CE               	movwf	main@prevLeftNum
+   583  0EFD  3000               	movlw	0
+   584  0EFE  00CF               	movwf	main@prevLeftNum+1
+   585  0EFF                     l867:
    586                           
    587                           ;Intro-1-Input-Ouput.c: 55:         for (int i = (9/2)+1; i <= (9); i++) {
-   588  0EFD  3005               	movlw	5
-   589  0EFE  00C8               	movwf	main@i
-   590  0EFF  3000               	movlw	0
-   591  0F00  00C9               	movwf	main@i+1
-   592  0F01                     l867:
+   588  0EFF  3005               	movlw	5
+   589  0F00  00C8               	movwf	main@i
+   590  0F01  3000               	movlw	0
+   591  0F02  00C9               	movwf	main@i+1
+   592  0F03                     l873:
    593                           
    594                           ;Intro-1-Input-Ouput.c: 56:             for (int ii = 0; ii < 255-(255%1); ii++) {
-   595  0F01  0020               	movlb	0	; select bank0
-   596  0F02  01C2               	clrf	main@ii
-   597  0F03  01C3               	clrf	main@ii+1
-   598  0F04                     l873:
+   595  0F03  0020               	movlb	0	; select bank0
+   596  0F04  01C2               	clrf	main@ii
+   597  0F05  01C3               	clrf	main@ii+1
+   598  0F06                     l879:
    599                           
    600                           ;Intro-1-Input-Ouput.c: 58:                 redArray[i]+=1;
-   601  0F04  3001               	movlw	1
-   602  0F05  00FB               	movwf	??_main
-   603  0F06  0020               	movlb	0	; select bank0
-   604  0F07  0848               	movf	main@i,w
-   605  0F08  3E38               	addlw	(low (_redArray| 0))& (0+255)
-   606  0F09  0086               	movwf	6
-   607  0F0A  0187               	clrf	7
-   608  0F0B  087B               	movf	??_main,w
-   609  0F0C  0781               	addwf	1,f
+   601  0F06  3001               	movlw	1
+   602  0F07  00FB               	movwf	??_main
+   603  0F08  0020               	movlb	0	; select bank0
+   604  0F09  0848               	movf	main@i,w
+   605  0F0A  3E38               	addlw	(low (_redArray| 0))& (0+255)
+   606  0F0B  0086               	movwf	6
+   607  0F0C  0187               	clrf	7
+   608  0F0D  087B               	movf	??_main,w
+   609  0F0E  0781               	addwf	1,f
    610                           
    611                           ;Intro-1-Input-Ouput.c: 59:                 redArray[leftNum]+=1;
-   612  0F0D  3001               	movlw	1
-   613  0F0E  00FB               	movwf	??_main
-   614  0F0F  084C               	movf	main@leftNum,w
-   615  0F10  3E38               	addlw	(low (_redArray| 0))& (0+255)
-   616  0F11  0086               	movwf	6
-   617  0F12  0187               	clrf	7
-   618  0F13  087B               	movf	??_main,w
-   619  0F14  0781               	addwf	1,f
+   612  0F0F  3001               	movlw	1
+   613  0F10  00FB               	movwf	??_main
+   614  0F11  084C               	movf	main@leftNum,w
+   615  0F12  3E38               	addlw	(low (_redArray| 0))& (0+255)
+   616  0F13  0086               	movwf	6
+   617  0F14  0187               	clrf	7
+   618  0F15  087B               	movf	??_main,w
+   619  0F16  0781               	addwf	1,f
    620                           
    621                           ;Intro-1-Input-Ouput.c: 60:                 redArray[prevNum]-=1;
-   622  0F15  0846               	movf	main@prevNum,w
-   623  0F16  3E38               	addlw	(low (_redArray| 0))& (0+255)
-   624  0F17  0086               	movwf	6
-   625  0F18  0187               	clrf	7
-   626  0F19  3001               	movlw	1
-   627  0F1A  0281               	subwf	1,f
-   628  0F1B                     l875:
+   622  0F17  0846               	movf	main@prevNum,w
+   623  0F18  3E38               	addlw	(low (_redArray| 0))& (0+255)
+   624  0F19  0086               	movwf	6
+   625  0F1A  0187               	clrf	7
+   626  0F1B  3001               	movlw	1
+   627  0F1C  0281               	subwf	1,f
+   628  0F1D                     l881:
    629                           
-   630                           ;Intro-1-Input-Ouput.c: 62:                 if (prevLeftNum != (9/2)+1) {
-   631  0F1B  3005               	movlw	5
-   632  0F1C  064E               	xorwf	main@prevLeftNum,w
-   633  0F1D  044F               	iorwf	main@prevLeftNum+1,w
-   634  0F1E  1903               	btfsc	3,2
-   635  0F1F  2F21               	goto	u191
-   636  0F20  2F22               	goto	u190
-   637  0F21                     u191:
-   638  0F21  2F28               	goto	l879
-   639  0F22                     u190:
-   640  0F22                     l877:
+   630                           ;Intro-1-Input-Ouput.c: 62:                 if (prevLeftNum != (9/2)) {
+   631  0F1D  3004               	movlw	4
+   632  0F1E  064E               	xorwf	main@prevLeftNum,w
+   633  0F1F  044F               	iorwf	main@prevLeftNum+1,w
+   634  0F20  1903               	btfsc	3,2
+   635  0F21  2F23               	goto	u191
+   636  0F22  2F24               	goto	u190
+   637  0F23                     u191:
+   638  0F23  2F2A               	goto	l885
+   639  0F24                     u190:
+   640  0F24                     l883:
    641                           
    642                           ;Intro-1-Input-Ouput.c: 63:                     redArray[prevLeftNum]-=1;
-   643  0F22  084E               	movf	main@prevLeftNum,w
-   644  0F23  3E38               	addlw	(low (_redArray| 0))& (0+255)
-   645  0F24  0086               	movwf	6
-   646  0F25  0187               	clrf	7
-   647  0F26  3001               	movlw	1
-   648  0F27  0281               	subwf	1,f
-   649  0F28                     l879:
+   643  0F24  084E               	movf	main@prevLeftNum,w
+   644  0F25  3E38               	addlw	(low (_redArray| 0))& (0+255)
+   645  0F26  0086               	movwf	6
+   646  0F27  0187               	clrf	7
+   647  0F28  3001               	movlw	1
+   648  0F29  0281               	subwf	1,f
+   649  0F2A                     l885:
    650                           
    651                           ;Intro-1-Input-Ouput.c: 65:                 neopixel_fill_a(9, redArray, greenArray, blu
       +                          eArray);
-   652  0F28  3038               	movlw	(low (_redArray| 0))& (0+255)
-   653  0F29  00FB               	movwf	??_main
-   654  0F2A  087B               	movf	??_main,w
-   655  0F2B  00F3               	movwf	neopixel_fill_a@red
-   656  0F2C  302E               	movlw	(low (_greenArray| 0))& (0+255)
-   657  0F2D  00FC               	movwf	??_main+1
-   658  0F2E  087C               	movf	??_main+1,w
-   659  0F2F  00F4               	movwf	neopixel_fill_a@green
-   660  0F30  3024               	movlw	(low (_blueArray| 0))& (0+255)
-   661  0F31  00FD               	movwf	??_main+2
-   662  0F32  087D               	movf	??_main+2,w
-   663  0F33  00F5               	movwf	neopixel_fill_a@blue
-   664  0F34  3009               	movlw	9
-   665  0F35  318E  26B6  318E   	fcall	_neopixel_fill_a
-   666  0F38                     l881:
+   652  0F2A  3038               	movlw	(low (_redArray| 0))& (0+255)
+   653  0F2B  00FB               	movwf	??_main
+   654  0F2C  087B               	movf	??_main,w
+   655  0F2D  00F3               	movwf	neopixel_fill_a@red
+   656  0F2E  302E               	movlw	(low (_greenArray| 0))& (0+255)
+   657  0F2F  00FC               	movwf	??_main+1
+   658  0F30  087C               	movf	??_main+1,w
+   659  0F31  00F4               	movwf	neopixel_fill_a@green
+   660  0F32  3024               	movlw	(low (_blueArray| 0))& (0+255)
+   661  0F33  00FD               	movwf	??_main+2
+   662  0F34  087D               	movf	??_main+2,w
+   663  0F35  00F5               	movwf	neopixel_fill_a@blue
+   664  0F36  3009               	movlw	9
+   665  0F37  318E  26B8  318E   	fcall	_neopixel_fill_a
+   666  0F3A                     l887:
    667                           
-   668                           ;Intro-1-Input-Ouput.c: 67:                 _delay((unsigned long)((1000)*(48000000/4000
-      +                          000.0)));
-   669  0F38  3010               	movlw	16
-   670  0F39  00FB               	movwf	??_main
-   671  0F3A  3094               	movlw	148
-   672  0F3B                     u277:
-   673  0F3B  0B89               	decfsz	9,f
-   674  0F3C  2F3B               	goto	u277
-   675  0F3D  0BFB               	decfsz	??_main,f
-   676  0F3E  2F3B               	goto	u277
-   677  0F3F  3200               	nop2
-   678  0F40                     l883:
+   668                           ;Intro-1-Input-Ouput.c: 67:                 _delay((unsigned long)((200)*(48000000/40000
+      +                          00.0)));
+   669  0F3A  3004               	movlw	4
+   670  0F3B  00FB               	movwf	??_main
+   671  0F3C  301C               	movlw	28
+   672  0F3D                     u277:
+   673  0F3D  0B89               	decfsz	9,f
+   674  0F3E  2F3D               	goto	u277
+   675  0F3F  0BFB               	decfsz	??_main,f
+   676  0F40  2F3D               	goto	u277
+   677  0F41  3200               	nop2
+   678  0F42                     l889:
    679                           
    680                           ;Intro-1-Input-Ouput.c: 68:             }
-   681  0F40  3001               	movlw	1
-   682  0F41  0020               	movlb	0	; select bank0
-   683  0F42  07C2               	addwf	main@ii,f
-   684  0F43  3000               	movlw	0
-   685  0F44  3DC3               	addwfc	main@ii+1,f
-   686  0F45                     l885:
-   687  0F45  0843               	movf	main@ii+1,w
-   688  0F46  3A80               	xorlw	128
-   689  0F47  00FB               	movwf	??_main
-   690  0F48  3080               	movlw	128
-   691  0F49  027B               	subwf	??_main,w
-   692  0F4A  1D03               	skipz
-   693  0F4B  2F4E               	goto	u205
-   694  0F4C  30FF               	movlw	255
-   695  0F4D  0242               	subwf	main@ii,w
-   696  0F4E                     u205:
-   697  0F4E  1C03               	skipc
-   698  0F4F  2F51               	goto	u201
-   699  0F50  2F52               	goto	u200
-   700  0F51                     u201:
-   701  0F51  2F04               	goto	l873
-   702  0F52                     u200:
-   703  0F52                     l887:
+   681  0F42  3001               	movlw	1
+   682  0F43  0020               	movlb	0	; select bank0
+   683  0F44  07C2               	addwf	main@ii,f
+   684  0F45  3000               	movlw	0
+   685  0F46  3DC3               	addwfc	main@ii+1,f
+   686  0F47                     l891:
+   687  0F47  0843               	movf	main@ii+1,w
+   688  0F48  3A80               	xorlw	128
+   689  0F49  00FB               	movwf	??_main
+   690  0F4A  3080               	movlw	128
+   691  0F4B  027B               	subwf	??_main,w
+   692  0F4C  1D03               	skipz
+   693  0F4D  2F50               	goto	u205
+   694  0F4E  30FF               	movlw	255
+   695  0F4F  0242               	subwf	main@ii,w
+   696  0F50                     u205:
+   697  0F50  1C03               	skipc
+   698  0F51  2F53               	goto	u201
+   699  0F52  2F54               	goto	u200
+   700  0F53                     u201:
+   701  0F53  2F06               	goto	l879
+   702  0F54                     u200:
+   703  0F54                     l893:
    704                           
    705                           ;Intro-1-Input-Ouput.c: 69:             prevLeftNum = leftNum;
-   706  0F52  0020               	movlb	0	; select bank0
-   707  0F53  084D               	movf	main@leftNum+1,w
-   708  0F54  00CF               	movwf	main@prevLeftNum+1
-   709  0F55  084C               	movf	main@leftNum,w
-   710  0F56  00CE               	movwf	main@prevLeftNum
+   706  0F54  0020               	movlb	0	; select bank0
+   707  0F55  084D               	movf	main@leftNum+1,w
+   708  0F56  00CF               	movwf	main@prevLeftNum+1
+   709  0F57  084C               	movf	main@leftNum,w
+   710  0F58  00CE               	movwf	main@prevLeftNum
    711                           
-   712                           ;Intro-1-Input-Ouput.c: 70:             leftNum-=1;
-   713  0F57  30FF               	movlw	255
-   714  0F58  07CC               	addwf	main@leftNum,f
-   715  0F59  30FF               	movlw	255
-   716  0F5A  3DCD               	addwfc	main@leftNum+1,f
+   712                           ;Intro-1-Input-Ouput.c: 70:             leftNum--;
+   713  0F59  30FF               	movlw	255
+   714  0F5A  07CC               	addwf	main@leftNum,f
+   715  0F5B  30FF               	movlw	255
+   716  0F5C  3DCD               	addwfc	main@leftNum+1,f
    717                           
    718                           ;Intro-1-Input-Ouput.c: 71:             prevNum = i;
-   719  0F5B  0849               	movf	main@i+1,w
-   720  0F5C  00C7               	movwf	main@prevNum+1
-   721  0F5D  0848               	movf	main@i,w
-   722  0F5E  00C6               	movwf	main@prevNum
+   719  0F5D  0849               	movf	main@i+1,w
+   720  0F5E  00C7               	movwf	main@prevNum+1
+   721  0F5F  0848               	movf	main@i,w
+   722  0F60  00C6               	movwf	main@prevNum
    723                           
    724                           ;Intro-1-Input-Ouput.c: 73:         }
-   725  0F5F  3001               	movlw	1
-   726  0F60  07C8               	addwf	main@i,f
-   727  0F61  3000               	movlw	0
-   728  0F62  3DC9               	addwfc	main@i+1,f
-   729  0F63  0849               	movf	main@i+1,w
-   730  0F64  3A80               	xorlw	128
-   731  0F65  00FB               	movwf	??_main
-   732  0F66  3080               	movlw	128
-   733  0F67  027B               	subwf	??_main,w
-   734  0F68  1D03               	skipz
-   735  0F69  2F6C               	goto	u215
-   736  0F6A  300A               	movlw	10
-   737  0F6B  0248               	subwf	main@i,w
-   738  0F6C                     u215:
-   739  0F6C  1C03               	skipc
-   740  0F6D  2F6F               	goto	u211
-   741  0F6E  2F70               	goto	u210
-   742  0F6F                     u211:
-   743  0F6F  2F01               	goto	l867
-   744  0F70                     u210:
-   745  0F70                     l889:
+   725  0F61  3001               	movlw	1
+   726  0F62  07C8               	addwf	main@i,f
+   727  0F63  3000               	movlw	0
+   728  0F64  3DC9               	addwfc	main@i+1,f
+   729  0F65  0849               	movf	main@i+1,w
+   730  0F66  3A80               	xorlw	128
+   731  0F67  00FB               	movwf	??_main
+   732  0F68  3080               	movlw	128
+   733  0F69  027B               	subwf	??_main,w
+   734  0F6A  1D03               	skipz
+   735  0F6B  2F6E               	goto	u215
+   736  0F6C  300A               	movlw	10
+   737  0F6D  0248               	subwf	main@i,w
+   738  0F6E                     u215:
+   739  0F6E  1C03               	skipc
+   740  0F6F  2F71               	goto	u211
+   741  0F70  2F72               	goto	u210
+   742  0F71                     u211:
+   743  0F71  2F03               	goto	l873
+   744  0F72                     u210:
+   745  0F72                     l895:
    746                           
-   747                           ;Intro-1-Input-Ouput.c: 74:         leftNum = -1;
-   748  0F70  30FF               	movlw	255
-   749  0F71  0020               	movlb	0	; select bank0
-   750  0F72  00CC               	movwf	main@leftNum
-   751  0F73  30FF               	movlw	255
-   752  0F74  00CD               	movwf	main@leftNum+1
-   753                           
-   754                           ;Intro-1-Input-Ouput.c: 75:         prevLeftNum = -1;
-   755  0F75  30FF               	movlw	255
-   756  0F76  00CE               	movwf	main@prevLeftNum
-   757  0F77  30FF               	movlw	255
-   758  0F78  00CF               	movwf	main@prevLeftNum+1
+   747                           ;Intro-1-Input-Ouput.c: 74:         leftNum = 0;
+   748  0F72  0020               	movlb	0	; select bank0
+   749  0F73  01CC               	clrf	main@leftNum
+   750  0F74  01CD               	clrf	main@leftNum+1
+   751  0F75                     l897:
+   752                           
+   753                           ;Intro-1-Input-Ouput.c: 75:         prevLeftNum = -1;
+   754  0F75  30FF               	movlw	255
+   755  0F76  00CE               	movwf	main@prevLeftNum
+   756  0F77  30FF               	movlw	255
+   757  0F78  00CF               	movwf	main@prevLeftNum+1
+   758  0F79                     l899:
    759                           
    760                           ;Intro-1-Input-Ouput.c: 76:         for (int i3 = 9; i3 >= (9/2)+1; i3--) {
    761  0F79  3009               	movlw	9
    762  0F7A  00CA               	movwf	main@i3
    763  0F7B  3000               	movlw	0
    764  0F7C  00CB               	movwf	main@i3+1
-   765  0F7D                     l893:
+   765  0F7D                     l905:
    766                           
    767                           ;Intro-1-Input-Ouput.c: 77:             for (int i4 = 0; i4 < 255-(255%1); i4++) {
    768  0F7D  0020               	movlb	0	; select bank0
    769  0F7E  01C4               	clrf	main@i4
    770  0F7F  01C5               	clrf	main@i4+1
-   771  0F80                     l899:
+   771  0F80                     l911:
    772                           
    773                           ;Intro-1-Input-Ouput.c: 79:                 redArray[i3]+=1;
    774  0F80  3001               	movlw	1
@@ -819,19 +819,19 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    798  0F94  0187               	clrf	7
    799  0F95  3001               	movlw	1
    800  0F96  0281               	subwf	1,f
-   801  0F97                     l901:
+   801  0F97                     l913:
    802                           
-   803                           ;Intro-1-Input-Ouput.c: 85:                 if (prevLeftNum != (9/2)+1) {
-   804  0F97  3005               	movlw	5
+   803                           ;Intro-1-Input-Ouput.c: 85:                 if (prevLeftNum != (9/2)) {
+   804  0F97  3004               	movlw	4
    805  0F98  064E               	xorwf	main@prevLeftNum,w
    806  0F99  044F               	iorwf	main@prevLeftNum+1,w
    807  0F9A  1903               	btfsc	3,2
    808  0F9B  2F9D               	goto	u221
    809  0F9C  2F9E               	goto	u220
    810  0F9D                     u221:
-   811  0F9D  2FA4               	goto	l905
+   811  0F9D  2FA4               	goto	l917
    812  0F9E                     u220:
-   813  0F9E                     l903:
+   813  0F9E                     l915:
    814                           
    815                           ;Intro-1-Input-Ouput.c: 87:                     redArray[prevLeftNum]-=1;
    816  0F9E  084E               	movf	main@prevLeftNum,w
@@ -840,7 +840,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    819  0FA1  0187               	clrf	7
    820  0FA2  3001               	movlw	1
    821  0FA3  0281               	subwf	1,f
-   822  0FA4                     l905:
+   822  0FA4                     l917:
    823                           
    824                           ;Intro-1-Input-Ouput.c: 89:                 neopixel_fill_a(9, redArray, greenArray, blu
       +                          eArray);
@@ -857,21 +857,21 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    835  0FAE  087D               	movf	??_main+2,w
    836  0FAF  00F5               	movwf	neopixel_fill_a@blue
    837  0FB0  3009               	movlw	9
-   838  0FB1  318E  26B6  318E   	fcall	_neopixel_fill_a
-   839  0FB4                     l907:
+   838  0FB1  318E  26B8  318E   	fcall	_neopixel_fill_a
+   839  0FB4                     l919:
    840                           
-   841                           ;Intro-1-Input-Ouput.c: 91:                 _delay((unsigned long)((1000)*(48000000/4000
-      +                          000.0)));
-   842  0FB4  3010               	movlw	16
+   841                           ;Intro-1-Input-Ouput.c: 91:                 _delay((unsigned long)((200)*(48000000/40000
+      +                          00.0)));
+   842  0FB4  3004               	movlw	4
    843  0FB5  00FB               	movwf	??_main
-   844  0FB6  3094               	movlw	148
+   844  0FB6  301C               	movlw	28
    845  0FB7                     u287:
    846  0FB7  0B89               	decfsz	9,f
    847  0FB8  2FB7               	goto	u287
    848  0FB9  0BFB               	decfsz	??_main,f
    849  0FBA  2FB7               	goto	u287
    850  0FBB  3200               	nop2
-   851  0FBC                     l909:
+   851  0FBC                     l921:
    852                           
    853                           ;Intro-1-Input-Ouput.c: 92:             }
    854  0FBC  3001               	movlw	1
@@ -879,7 +879,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    856  0FBE  07C4               	addwf	main@i4,f
    857  0FBF  3000               	movlw	0
    858  0FC0  3DC5               	addwfc	main@i4+1,f
-   859  0FC1                     l911:
+   859  0FC1                     l923:
    860  0FC1  0845               	movf	main@i4+1,w
    861  0FC2  3A80               	xorlw	128
    862  0FC3  00FB               	movwf	??_main
@@ -894,9 +894,9 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    871  0FCB  2FCD               	goto	u231
    872  0FCC  2FCE               	goto	u230
    873  0FCD                     u231:
-   874  0FCD  2F80               	goto	l899
+   874  0FCD  2F80               	goto	l911
    875  0FCE                     u230:
-   876  0FCE                     l913:
+   876  0FCE                     l925:
    877                           
    878                           ;Intro-1-Input-Ouput.c: 93:             prevLeftNum = leftNum;
    879  0FCE  0020               	movlb	0	; select bank0
@@ -905,7 +905,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    882  0FD1  084C               	movf	main@leftNum,w
    883  0FD2  00CE               	movwf	main@prevLeftNum
    884                           
-   885                           ;Intro-1-Input-Ouput.c: 94:             leftNum+=1;
+   885                           ;Intro-1-Input-Ouput.c: 94:             leftNum++;
    886  0FD3  3001               	movlw	1
    887  0FD4  07CC               	addwf	main@leftNum,f
    888  0FD5  3000               	movlw	0
@@ -936,7 +936,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    913  0FE9  2FEB               	goto	u241
    914  0FEA  2FEC               	goto	u240
    915  0FEB                     u241:
-   916  0FEB  2F7D               	goto	l893
+   916  0FEB  2F7D               	goto	l905
    917  0FEC                     u240:
    918  0FEC                     l115:
    919                           
@@ -946,19 +946,19 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    923  0FEE  2FF0               	goto	u251
    924  0FEF  2FF1               	goto	u250
    925  0FF0                     u251:
-   926  0FF0  2EF0               	goto	l855
+   926  0FF0  2EF2               	goto	l861
    927  0FF1                     u250:
-   928  0FF1                     l915:
+   928  0FF1                     l927:
    929  0FF1  0001               	reset	;# 
-   930  0FF2  2EF0               	goto	l855
+   930  0FF2  2EF2               	goto	l861
    931  0FF3  3188  2803         	ljmp	start
    932  0FF5                     __end_of_main:
    933                           
    934                           	psect	text1
-   935  0EB6                     __ptext1:	
+   935  0EB8                     __ptext1:	
    936 ;; *************** function _neopixel_fill_a *****************
    937 ;; Defined at:
-   938 ;;		line 110 in file "Intro-1-Input-Ouput.c"
+   938 ;;		line 112 in file "Intro-1-Input-Ouput.c"
    939 ;; Parameters:    Size  Location     Type
    940 ;;  leds            1    wreg     unsigned char 
    941 ;;  red             1    3[COMMON] PTR unsigned char 
@@ -1000,84 +1000,84 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    972                           
    973                           
    974                           ;psect for function _neopixel_fill_a
-   975  0EB6                     _neopixel_fill_a:
+   975  0EB8                     _neopixel_fill_a:
    976                           
    977                           ;incstack = 0
    978                           ; Regs used in _neopixel_fill_a: [wreg+fsr1l+fsr1h+status,2+status,0+pclath+cstack]
    979                           ;neopixel_fill_a@leds stored from wreg
-   980  0EB6  00F8               	movwf	neopixel_fill_a@leds
-   981  0EB7                     l845:
+   980  0EB8  00F8               	movwf	neopixel_fill_a@leds
+   981  0EB9                     l851:
    982                           
-   983                           ;Intro-1-Input-Ouput.c: 111:     int ledNum = 0;
-   984  0EB7  01F9               	clrf	neopixel_fill_a@ledNum
-   985  0EB8  01FA               	clrf	neopixel_fill_a@ledNum+1
+   983                           ;Intro-1-Input-Ouput.c: 113:     int ledNum = 0;
+   984  0EB9  01F9               	clrf	neopixel_fill_a@ledNum
+   985  0EBA  01FA               	clrf	neopixel_fill_a@ledNum+1
    986                           
-   987                           ;Intro-1-Input-Ouput.c: 112:     for(; ledNum != leds; ledNum++) {
-   988  0EB9  2EDC               	goto	l851
-   989  0EBA                     l847:
+   987                           ;Intro-1-Input-Ouput.c: 114:     for(; ledNum != leds; ledNum++) {
+   988  0EBB  2EDE               	goto	l857
+   989  0EBC                     l853:
    990                           
-   991                           ;Intro-1-Input-Ouput.c: 113:         neopixel_send(green[ledNum]);
-   992  0EBA  0879               	movf	neopixel_fill_a@ledNum,w
-   993  0EBB  0774               	addwf	neopixel_fill_a@green,w
-   994  0EBC  00F6               	movwf	??_neopixel_fill_a
-   995  0EBD  0876               	movf	??_neopixel_fill_a,w
-   996  0EBE  0086               	movwf	6
-   997  0EBF  0187               	clrf	7
-   998  0EC0  0801               	movf	1,w
-   999  0EC1  318E  267C  318E   	fcall	_neopixel_send
+   991                           ;Intro-1-Input-Ouput.c: 115:         neopixel_send(green[ledNum]);
+   992  0EBC  0879               	movf	neopixel_fill_a@ledNum,w
+   993  0EBD  0774               	addwf	neopixel_fill_a@green,w
+   994  0EBE  00F6               	movwf	??_neopixel_fill_a
+   995  0EBF  0876               	movf	??_neopixel_fill_a,w
+   996  0EC0  0086               	movwf	6
+   997  0EC1  0187               	clrf	7
+   998  0EC2  0801               	movf	1,w
+   999  0EC3  318E  267E  318E   	fcall	_neopixel_send
   1000                           
-  1001                           ;Intro-1-Input-Ouput.c: 114:         neopixel_send(red[ledNum]);
-  1002  0EC4  0879               	movf	neopixel_fill_a@ledNum,w
-  1003  0EC5  0773               	addwf	neopixel_fill_a@red,w
-  1004  0EC6  00F6               	movwf	??_neopixel_fill_a
-  1005  0EC7  0876               	movf	??_neopixel_fill_a,w
-  1006  0EC8  0086               	movwf	6
-  1007  0EC9  0187               	clrf	7
-  1008  0ECA  0801               	movf	1,w
-  1009  0ECB  318E  267C  318E   	fcall	_neopixel_send
+  1001                           ;Intro-1-Input-Ouput.c: 116:         neopixel_send(red[ledNum]);
+  1002  0EC6  0879               	movf	neopixel_fill_a@ledNum,w
+  1003  0EC7  0773               	addwf	neopixel_fill_a@red,w
+  1004  0EC8  00F6               	movwf	??_neopixel_fill_a
+  1005  0EC9  0876               	movf	??_neopixel_fill_a,w
+  1006  0ECA  0086               	movwf	6
+  1007  0ECB  0187               	clrf	7
+  1008  0ECC  0801               	movf	1,w
+  1009  0ECD  318E  267E  318E   	fcall	_neopixel_send
   1010                           
-  1011                           ;Intro-1-Input-Ouput.c: 115:         neopixel_send(blue[ledNum]);
-  1012  0ECE  0879               	movf	neopixel_fill_a@ledNum,w
-  1013  0ECF  0775               	addwf	neopixel_fill_a@blue,w
-  1014  0ED0  00F6               	movwf	??_neopixel_fill_a
-  1015  0ED1  0876               	movf	??_neopixel_fill_a,w
-  1016  0ED2  0086               	movwf	6
-  1017  0ED3  0187               	clrf	7
-  1018  0ED4  0801               	movf	1,w
-  1019  0ED5  318E  267C  318E   	fcall	_neopixel_send
-  1020  0ED8                     l849:
+  1011                           ;Intro-1-Input-Ouput.c: 117:         neopixel_send(blue[ledNum]);
+  1012  0ED0  0879               	movf	neopixel_fill_a@ledNum,w
+  1013  0ED1  0775               	addwf	neopixel_fill_a@blue,w
+  1014  0ED2  00F6               	movwf	??_neopixel_fill_a
+  1015  0ED3  0876               	movf	??_neopixel_fill_a,w
+  1016  0ED4  0086               	movwf	6
+  1017  0ED5  0187               	clrf	7
+  1018  0ED6  0801               	movf	1,w
+  1019  0ED7  318E  267E  318E   	fcall	_neopixel_send
+  1020  0EDA                     l855:
   1021                           
-  1022                           ;Intro-1-Input-Ouput.c: 116:     }
-  1023  0ED8  3001               	movlw	1
-  1024  0ED9  07F9               	addwf	neopixel_fill_a@ledNum,f
-  1025  0EDA  3000               	movlw	0
-  1026  0EDB  3DFA               	addwfc	neopixel_fill_a@ledNum+1,f
-  1027  0EDC                     l851:
-  1028  0EDC  0878               	movf	neopixel_fill_a@leds,w
-  1029  0EDD  00F6               	movwf	??_neopixel_fill_a
-  1030  0EDE  01F7               	clrf	??_neopixel_fill_a+1
-  1031  0EDF  087A               	movf	neopixel_fill_a@ledNum+1,w
-  1032  0EE0  0677               	xorwf	??_neopixel_fill_a+1,w
-  1033  0EE1  1D03               	skipz
-  1034  0EE2  2EE5               	goto	u185
-  1035  0EE3  0879               	movf	neopixel_fill_a@ledNum,w
-  1036  0EE4  0676               	xorwf	??_neopixel_fill_a,w
-  1037  0EE5                     u185:
-  1038  0EE5  1D03               	skipz
-  1039  0EE6  2EE8               	goto	u181
-  1040  0EE7  2EE9               	goto	u180
-  1041  0EE8                     u181:
-  1042  0EE8  2EBA               	goto	l847
-  1043  0EE9                     u180:
-  1044  0EE9                     l128:
-  1045  0EE9  0008               	return
-  1046  0EEA                     __end_of_neopixel_fill_a:
+  1022                           ;Intro-1-Input-Ouput.c: 118:     }
+  1023  0EDA  3001               	movlw	1
+  1024  0EDB  07F9               	addwf	neopixel_fill_a@ledNum,f
+  1025  0EDC  3000               	movlw	0
+  1026  0EDD  3DFA               	addwfc	neopixel_fill_a@ledNum+1,f
+  1027  0EDE                     l857:
+  1028  0EDE  0878               	movf	neopixel_fill_a@leds,w
+  1029  0EDF  00F6               	movwf	??_neopixel_fill_a
+  1030  0EE0  01F7               	clrf	??_neopixel_fill_a+1
+  1031  0EE1  087A               	movf	neopixel_fill_a@ledNum+1,w
+  1032  0EE2  0677               	xorwf	??_neopixel_fill_a+1,w
+  1033  0EE3  1D03               	skipz
+  1034  0EE4  2EE7               	goto	u185
+  1035  0EE5  0879               	movf	neopixel_fill_a@ledNum,w
+  1036  0EE6  0676               	xorwf	??_neopixel_fill_a,w
+  1037  0EE7                     u185:
+  1038  0EE7  1D03               	skipz
+  1039  0EE8  2EEA               	goto	u181
+  1040  0EE9  2EEB               	goto	u180
+  1041  0EEA                     u181:
+  1042  0EEA  2EBC               	goto	l853
+  1043  0EEB                     u180:
+  1044  0EEB                     l128:
+  1045  0EEB  0008               	return
+  1046  0EEC                     __end_of_neopixel_fill_a:
   1047                           
   1048                           	psect	text2
-  1049  0E7C                     __ptext2:	
+  1049  0E7E                     __ptext2:	
   1050 ;; *************** function _neopixel_send *****************
   1051 ;; Defined at:
-  1052 ;;		line 128 in file "Intro-1-Input-Ouput.c"
+  1052 ;;		line 130 in file "Intro-1-Input-Ouput.c"
   1053 ;; Parameters:    Size  Location     Type
   1054 ;;  colour          1    wreg     unsigned char 
   1055 ;; Auto vars:     Size  Location     Type
@@ -1113,74 +1113,74 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1080                           
   1081                           
   1082                           ;psect for function _neopixel_send
-  1083  0E7C                     _neopixel_send:
+  1083  0E7E                     _neopixel_send:
   1084                           
   1085                           ;incstack = 0
   1086                           ; Regs used in _neopixel_send: [wreg+status,2+status,0]
   1087                           ;neopixel_send@colour stored from wreg
-  1088  0E7C  00F1               	movwf	neopixel_send@colour
-  1089  0E7D                     l815:
+  1088  0E7E  00F1               	movwf	neopixel_send@colour
+  1089  0E7F                     l821:
   1090                           
-  1091                           ;Intro-1-Input-Ouput.c: 128: void neopixel_send(unsigned char colour);Intro-1-Input-Oupu
-      +                          t.c: 129: {;Intro-1-Input-Ouput.c: 130:     for(unsigned char bits = 8; bits != 0; bits 
+  1091                           ;Intro-1-Input-Ouput.c: 130: void neopixel_send(unsigned char colour);Intro-1-Input-Oupu
+      +                          t.c: 131: {;Intro-1-Input-Ouput.c: 132:     for(unsigned char bits = 8; bits != 0; bits 
       +                          --)
-  1092  0E7D  3008               	movlw	8
-  1093  0E7E  00F0               	movwf	??_neopixel_send
-  1094  0E7F  0870               	movf	??_neopixel_send,w
-  1095  0E80  00F2               	movwf	neopixel_send@bits
-  1096  0E81                     l136:
+  1092  0E7F  3008               	movlw	8
+  1093  0E80  00F0               	movwf	??_neopixel_send
+  1094  0E81  0870               	movf	??_neopixel_send,w
+  1095  0E82  00F2               	movwf	neopixel_send@bits
+  1096  0E83                     l136:
   1097                           
-  1098                           ;Intro-1-Input-Ouput.c: 131:     {;Intro-1-Input-Ouput.c: 132:         LATCbits.LATC0 = 
+  1098                           ;Intro-1-Input-Ouput.c: 133:     {;Intro-1-Input-Ouput.c: 134:         LATCbits.LATC0 = 
       +                          1;
-  1099  0E81  0022               	movlb	2	; select bank2
-  1100  0E82  140E               	bsf	14,0	;volatile
+  1099  0E83  0022               	movlb	2	; select bank2
+  1100  0E84  140E               	bsf	14,0	;volatile
   1101                           
-  1102                           ;Intro-1-Input-Ouput.c: 133:         if((colour & 0b10000000) == 0)
-  1103  0E83  1BF1               	btfsc	neopixel_send@colour,7
-  1104  0E84  2E86               	goto	u151
-  1105  0E85  2E87               	goto	u150
-  1106  0E86                     u151:
-  1107  0E86  2E88               	goto	l138
-  1108  0E87                     u150:
-  1109  0E87                     l821:
+  1102                           ;Intro-1-Input-Ouput.c: 135:         if((colour & 0b10000000) == 0)
+  1103  0E85  1BF1               	btfsc	neopixel_send@colour,7
+  1104  0E86  2E88               	goto	u151
+  1105  0E87  2E89               	goto	u150
+  1106  0E88                     u151:
+  1107  0E88  2E8A               	goto	l138
+  1108  0E89                     u150:
+  1109  0E89                     l827:
   1110                           
-  1111                           ;Intro-1-Input-Ouput.c: 134:         {;Intro-1-Input-Ouput.c: 135:             LATCbits.
+  1111                           ;Intro-1-Input-Ouput.c: 136:         {;Intro-1-Input-Ouput.c: 137:             LATCbits.
       +                          LATC0 = 0;
-  1112  0E87  100E               	bcf	14,0	;volatile
-  1113  0E88                     l138:	
-  1114                           ;Intro-1-Input-Ouput.c: 136:         }
+  1112  0E89  100E               	bcf	14,0	;volatile
+  1113  0E8A                     l138:	
+  1114                           ;Intro-1-Input-Ouput.c: 138:         }
   1115                           
   1116                           
-  1117                           ;Intro-1-Input-Ouput.c: 137:         __nop();
-  1118  0E88  0000               	nop
+  1117                           ;Intro-1-Input-Ouput.c: 139:         __nop();
+  1118  0E8A  0000               	nop
   1119                           
-  1120                           ;Intro-1-Input-Ouput.c: 138:         LATCbits.LATC0 = 0;
-  1121  0E89  0022               	movlb	2	; select bank2
-  1122  0E8A  100E               	bcf	14,0	;volatile
-  1123  0E8B                     l823:
+  1120                           ;Intro-1-Input-Ouput.c: 140:         LATCbits.LATC0 = 0;
+  1121  0E8B  0022               	movlb	2	; select bank2
+  1122  0E8C  100E               	bcf	14,0	;volatile
+  1123  0E8D                     l829:
   1124                           
-  1125                           ;Intro-1-Input-Ouput.c: 139:         colour = colour << 1;
-  1126  0E8B  3571               	lslf	neopixel_send@colour,w
-  1127  0E8C  00F0               	movwf	??_neopixel_send
-  1128  0E8D  0870               	movf	??_neopixel_send,w
-  1129  0E8E  00F1               	movwf	neopixel_send@colour
+  1125                           ;Intro-1-Input-Ouput.c: 141:         colour = colour << 1;
+  1126  0E8D  3571               	lslf	neopixel_send@colour,w
+  1127  0E8E  00F0               	movwf	??_neopixel_send
+  1128  0E8F  0870               	movf	??_neopixel_send,w
+  1129  0E90  00F1               	movwf	neopixel_send@colour
   1130                           
-  1131                           ;Intro-1-Input-Ouput.c: 140:     }
-  1132  0E8F  3001               	movlw	1
-  1133  0E90  02F2               	subwf	neopixel_send@bits,f
-  1134  0E91  0872               	movf	neopixel_send@bits,w
-  1135  0E92  1D03               	btfss	3,2
-  1136  0E93  2E95               	goto	u161
-  1137  0E94  2E96               	goto	u160
-  1138  0E95                     u161:
-  1139  0E95  2E81               	goto	l136
-  1140  0E96                     u160:
-  1141  0E96                     l139:
-  1142  0E96  0008               	return
-  1143  0E97                     __end_of_neopixel_send:
+  1131                           ;Intro-1-Input-Ouput.c: 142:     }
+  1132  0E91  3001               	movlw	1
+  1133  0E92  02F2               	subwf	neopixel_send@bits,f
+  1134  0E93  0872               	movf	neopixel_send@bits,w
+  1135  0E94  1D03               	btfss	3,2
+  1136  0E95  2E97               	goto	u161
+  1137  0E96  2E98               	goto	u160
+  1138  0E97                     u161:
+  1139  0E97  2E83               	goto	l136
+  1140  0E98                     u160:
+  1141  0E98                     l139:
+  1142  0E98  0008               	return
+  1143  0E99                     __end_of_neopixel_send:
   1144                           
   1145                           	psect	text3
-  1146  0E97                     __ptext3:	
+  1146  0E99                     __ptext3:	
   1147 ;; *************** function _UBMP4_config *****************
   1148 ;; Defined at:
   1149 ;;		line 29 in file "UBMP4.c"
@@ -1217,79 +1217,79 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1175                           
   1176                           
   1177                           ;psect for function _UBMP4_config
-  1178  0E97                     _UBMP4_config:
-  1179  0E97                     l827:	
+  1178  0E99                     _UBMP4_config:
+  1179  0E99                     l833:	
   1180                           ;incstack = 0
   1181                           ; Regs used in _UBMP4_config: [wreg+status,2]
   1182                           
   1183                           
   1184                           ;UBMP4.c: 31:     OPTION_REG = 0b01010111;
-  1185  0E97  3057               	movlw	87
-  1186  0E98  0021               	movlb	1	; select bank1
-  1187  0E99  0095               	movwf	21	;volatile
-  1188  0E9A                     l829:
+  1185  0E99  3057               	movlw	87
+  1186  0E9A  0021               	movlb	1	; select bank1
+  1187  0E9B  0095               	movwf	21	;volatile
+  1188  0E9C                     l835:
   1189                           
   1190                           ;UBMP4.c: 33:     LATA = 0b00000000;
-  1191  0E9A  0022               	movlb	2	; select bank2
-  1192  0E9B  018C               	clrf	12	;volatile
-  1193  0E9C                     l831:
+  1191  0E9C  0022               	movlb	2	; select bank2
+  1192  0E9D  018C               	clrf	12	;volatile
+  1193  0E9E                     l837:
   1194                           
   1195                           ;UBMP4.c: 34:     TRISA = 0b00001111;
-  1196  0E9C  300F               	movlw	15
-  1197  0E9D  0021               	movlb	1	; select bank1
-  1198  0E9E  008C               	movwf	12	;volatile
+  1196  0E9E  300F               	movlw	15
+  1197  0E9F  0021               	movlb	1	; select bank1
+  1198  0EA0  008C               	movwf	12	;volatile
   1199                           
   1200                           ;UBMP4.c: 35:     ANSELA = 0b00000000;
-  1201  0E9F  0023               	movlb	3	; select bank3
-  1202  0EA0  018C               	clrf	12	;volatile
-  1203  0EA1                     l833:
+  1201  0EA1  0023               	movlb	3	; select bank3
+  1202  0EA2  018C               	clrf	12	;volatile
+  1203  0EA3                     l839:
   1204                           
   1205                           ;UBMP4.c: 36:     WPUA = 0b00001000;
-  1206  0EA1  3008               	movlw	8
-  1207  0EA2  0024               	movlb	4	; select bank4
-  1208  0EA3  008C               	movwf	12	;volatile
-  1209  0EA4                     l835:
+  1206  0EA3  3008               	movlw	8
+  1207  0EA4  0024               	movlb	4	; select bank4
+  1208  0EA5  008C               	movwf	12	;volatile
+  1209  0EA6                     l841:
   1210                           
   1211                           ;UBMP4.c: 38:     LATB = 0b00000000;
-  1212  0EA4  0022               	movlb	2	; select bank2
-  1213  0EA5  018D               	clrf	13	;volatile
+  1212  0EA6  0022               	movlb	2	; select bank2
+  1213  0EA7  018D               	clrf	13	;volatile
   1214                           
   1215                           ;UBMP4.c: 39:     TRISB = 0b11110000;
-  1216  0EA6  30F0               	movlw	240
-  1217  0EA7  0021               	movlb	1	; select bank1
-  1218  0EA8  008D               	movwf	13	;volatile
-  1219  0EA9                     l837:
+  1216  0EA8  30F0               	movlw	240
+  1217  0EA9  0021               	movlb	1	; select bank1
+  1218  0EAA  008D               	movwf	13	;volatile
+  1219  0EAB                     l843:
   1220                           
   1221                           ;UBMP4.c: 40:     ANSELB = 0b00000000;
-  1222  0EA9  0023               	movlb	3	; select bank3
-  1223  0EAA  018D               	clrf	13	;volatile
-  1224  0EAB                     l839:
+  1222  0EAB  0023               	movlb	3	; select bank3
+  1223  0EAC  018D               	clrf	13	;volatile
+  1224  0EAD                     l845:
   1225                           
   1226                           ;UBMP4.c: 41:     WPUB = 0b11110000;
-  1227  0EAB  30F0               	movlw	240
-  1228  0EAC  0024               	movlb	4	; select bank4
-  1229  0EAD  008D               	movwf	13	;volatile
+  1227  0EAD  30F0               	movlw	240
+  1228  0EAE  0024               	movlb	4	; select bank4
+  1229  0EAF  008D               	movwf	13	;volatile
   1230                           
   1231                           ;UBMP4.c: 43:     LATC = 0b00000000;
-  1232  0EAE  0022               	movlb	2	; select bank2
-  1233  0EAF  018E               	clrf	14	;volatile
-  1234  0EB0                     l841:
+  1232  0EB0  0022               	movlb	2	; select bank2
+  1233  0EB1  018E               	clrf	14	;volatile
+  1234  0EB2                     l847:
   1235                           
   1236                           ;UBMP4.c: 44:     TRISC = 0b00001110;
-  1237  0EB0  300E               	movlw	14
-  1238  0EB1  0021               	movlb	1	; select bank1
-  1239  0EB2  008E               	movwf	14	;volatile
-  1240  0EB3                     l843:
+  1237  0EB2  300E               	movlw	14
+  1238  0EB3  0021               	movlb	1	; select bank1
+  1239  0EB4  008E               	movwf	14	;volatile
+  1240  0EB5                     l849:
   1241                           
   1242                           ;UBMP4.c: 45:     ANSELC = 0b00000000;
-  1243  0EB3  0023               	movlb	3	; select bank3
-  1244  0EB4  018E               	clrf	14	;volatile
-  1245  0EB5                     l55:
-  1246  0EB5  0008               	return
-  1247  0EB6                     __end_of_UBMP4_config:
+  1243  0EB5  0023               	movlb	3	; select bank3
+  1244  0EB6  018E               	clrf	14	;volatile
+  1245  0EB7                     l55:
+  1246  0EB7  0008               	return
+  1247  0EB8                     __end_of_UBMP4_config:
   1248                           
   1249                           	psect	text4
-  1250  0E70                     __ptext4:	
+  1250  0E72                     __ptext4:	
   1251 ;; *************** function _OSC_config *****************
   1252 ;; Defined at:
   1253 ;;		line 21 in file "UBMP4.c"
@@ -1326,34 +1326,34 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1279                           
   1280                           
   1281                           ;psect for function _OSC_config
-  1282  0E70                     _OSC_config:
-  1283  0E70                     l825:	
+  1282  0E72                     _OSC_config:
+  1283  0E72                     l831:	
   1284                           ;incstack = 0
   1285                           ; Regs used in _OSC_config: [wreg]
   1286                           
   1287                           
   1288                           ;UBMP4.c: 23:     OSCCON = 0xFC;
-  1289  0E70  30FC               	movlw	252
-  1290  0E71  0021               	movlb	1	; select bank1
-  1291  0E72  0099               	movwf	25	;volatile
+  1289  0E72  30FC               	movlw	252
+  1290  0E73  0021               	movlb	1	; select bank1
+  1291  0E74  0099               	movwf	25	;volatile
   1292                           
   1293                           ;UBMP4.c: 24:     ACTCON = 0x90;
-  1294  0E73  3090               	movlw	144
-  1295  0E74  0027               	movlb	7	; select bank7
-  1296  0E75  009B               	movwf	27	;volatile
-  1297  0E76                     l49:	
+  1294  0E75  3090               	movlw	144
+  1295  0E76  0027               	movlb	7	; select bank7
+  1296  0E77  009B               	movwf	27	;volatile
+  1297  0E78                     l49:	
   1298                           ;UBMP4.c: 25:     while(!PLLRDY);
   1299                           
-  1300  0E76  0021               	movlb	1	; select bank1
-  1301  0E77  1F1A               	btfss	26,6	;volatile
-  1302  0E78  2E7A               	goto	u171
-  1303  0E79  2E7B               	goto	u170
-  1304  0E7A                     u171:
-  1305  0E7A  2E76               	goto	l49
-  1306  0E7B                     u170:
-  1307  0E7B                     l52:
-  1308  0E7B  0008               	return
-  1309  0E7C                     __end_of_OSC_config:
+  1300  0E78  0021               	movlb	1	; select bank1
+  1301  0E79  1F1A               	btfss	26,6	;volatile
+  1302  0E7A  2E7C               	goto	u171
+  1303  0E7B  2E7D               	goto	u170
+  1304  0E7C                     u171:
+  1305  0E7C  2E78               	goto	l49
+  1306  0E7D                     u170:
+  1307  0E7D                     l52:
+  1308  0E7D  0008               	return
+  1309  0E7E                     __end_of_OSC_config:
   1310  007E                     btemp	set	126	;btemp
   1311  007E                     wtemp0	set	126
 
@@ -1588,64 +1588,64 @@ SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.32 build 20210201212658 
-Symbol Table                                                                                   Thu Dec 09 10:46:10 2021
+Symbol Table                                                                                   Fri Dec 10 10:32:35 2021
 
-   __end_of_neopixel_send 0E97                        l52 0E7B                        l55 0EB5  
-                      l49 0E76                        _GO 04E9   __end_of_neopixel_fill_a 0EEA  
-                     l115 0FEC                       l136 0E81                       l128 0EE9  
-                     l138 0E88                       l139 0E96                       l821 0E87  
-                     l901 0F97                       l831 0E9C                       l823 0E8B  
-                     l815 0E7D                       l911 0FC1                       l903 0F9E  
-                     l825 0E70                       l841 0EB0                       l833 0EA1  
-                     l913 0FCE                       l905 0FA4                       l843 0EB3  
-                     l835 0EA4                       l827 0E97                       l851 0EDC  
-                     l915 0FF1                       l907 0FB4                       l837 0EA9  
-                     l829 0E9A                       l845 0EB7                       l909 0FBC  
-                     l861 0EFD                       l853 0EEA                       l839 0EAB  
-                     l847 0EBA                       l855 0EF0                       l849 0ED8  
-                     l881 0F38                       l873 0F04                       l857 0EF5  
-                     l883 0F40                       l875 0F1B                       l867 0F01  
-                     l859 0EF9                       l893 0F7D                       l885 0F45  
-                     l877 0F22                       l887 0F52                       l879 0F28  
-                     l889 0F70                       l899 0F80                       u200 0F52  
-                     u201 0F51                       u210 0F70                       u211 0F6F  
-                     u220 0F9E                       u221 0F9D                       u205 0F4E  
-                     u150 0E87                       u230 0FCE                       u151 0E86  
-                     u231 0FCD                       u215 0F6C                       u160 0E96  
-                     u240 0FEC                       u161 0E95                       u241 0FEB  
-                     u170 0E7B                       u250 0FF1                       u171 0E7A  
-                     u251 0FF0                       u235 0FCA                       u180 0EE9  
-                     u181 0EE8                       u245 0FE8                       u190 0F22  
-                     u191 0F21                       u185 0EE5                       u277 0F3B  
-                     u287 0FB7                       _red 0022                       wreg 0009  
-                    _ADON 04E8               main@leftNum 004C                      _LATA 010C  
-                    _LATB 010D                      _LATC 010E                      _WPUA 020C  
-                    _WPUB 020D                      _blue 0020                      _main 0EEA  
-                    _leds 0023                      fsr0h 0005                      fsr1h 0007  
-                    indf0 0000                      fsr0l 0004                      indf1 0001  
-                    fsr1l 0006                      btemp 007E               main@prevNum 0046  
-                    start 0803                     ?_main 0070                     _TRISA 008C  
-                   _TRISB 008D                     _TRISC 008E                     _green 0021  
-                   main@i 0048               ?_OSC_config 0070                     status 0003  
-                   wtemp0 007E       neopixel_send@colour 0071           __initialization 0FF5  
-            __end_of_main 0FF5          ?_neopixel_fill_a 0073                    ??_main 007B  
-                  _ADCON0 009D                    _ADCON1 009E                    _ADCON2 009F  
-                  _ACTCON 039B                    _ADRESH 009C                    _ANSELA 018C  
-                  _ANSELB 018D                    _ANSELC 018E                    _OSCCON 0099  
-                  _PLLRDY 04D6       __size_of_OSC_config 000C                    main@i3 004A  
-                  main@i4 0044                    main@ii 0042   __end_of__initialization 0FFD  
-          __pcstackCOMMON 0070             ?_UBMP4_config 0070                __pbssBANK0 0020  
-          ??_UBMP4_config 0070                __pmaintext 0EEA    __size_of_neopixel_send 001B  
-            ??_OSC_config 0070                _greenArray 002E                   __ptext1 0EB6  
-                 __ptext2 0E7C                   __ptext3 0E97                   __ptext4 0E70  
-      __end_of_OSC_config 0E7C                   clrloop0 0E6B      end_of_initialization 0FFD  
-           _neopixel_send 0E7C                 _PORTAbits 000C                 _TRISCbits 008E  
-__size_of_neopixel_fill_a 0034      __end_of_UBMP4_config 0EB6         neopixel_send@bits 0072  
-          ?_neopixel_send 0070       start_initialization 0FF5                 ___latbits 0002  
-           __pcstackBANK0 0042         ??_neopixel_fill_a 0076           ??_neopixel_send 0070  
-               _blueArray 0024     __size_of_UBMP4_config 001F                  _LATCbits 010E  
-               clear_ram0 0E6A              _UBMP4_config 0E97                  _redArray 0038  
-           __size_of_main 010B     neopixel_fill_a@ledNum 0079           main@prevLeftNum 004E  
-         _neopixel_fill_a 0EB6      neopixel_fill_a@green 0074                _OPTION_REG 0095  
-     neopixel_fill_a@blue 0075       neopixel_fill_a@leds 0078                _OSC_config 0E70  
-      neopixel_fill_a@red 0073  
+   __end_of_neopixel_send 0E99                        l52 0E7D                        l55 0EB7  
+                      l49 0E78                        _GO 04E9   __end_of_neopixel_fill_a 0EEC  
+                     l115 0FEC                       l136 0E83                       l128 0EEB  
+                     l138 0E8A                       l139 0E98                       l821 0E7F  
+                     l831 0E72                       l911 0F80                       l841 0EA6  
+                     l833 0E99                       l921 0FBC                       l913 0F97  
+                     l905 0F7D                       l843 0EAB                       l835 0E9C  
+                     l827 0E89                       l851 0EB9                       l923 0FC1  
+                     l915 0F9E                       l845 0EAD                       l837 0E9E  
+                     l829 0E8D                       l853 0EBC                       l925 0FCE  
+                     l917 0FA4                       l861 0EF2                       l847 0EB2  
+                     l839 0EA3                       l855 0EDA                       l927 0FF1  
+                     l919 0FB4                       l863 0EF7                       l849 0EB5  
+                     l857 0EDE                       l881 0F1D                       l873 0F03  
+                     l865 0EFB                       l891 0F47                       l883 0F24  
+                     l867 0EFF                       l859 0EEC                       l893 0F54  
+                     l885 0F2A                       l895 0F72                       l887 0F3A  
+                     l879 0F06                       l897 0F75                       l889 0F42  
+                     l899 0F79                       u200 0F54                       u201 0F53  
+                     u210 0F72                       u211 0F71                       u220 0F9E  
+                     u221 0F9D                       u205 0F50                       u150 0E89  
+                     u230 0FCE                       u151 0E88                       u231 0FCD  
+                     u215 0F6E                       u160 0E98                       u240 0FEC  
+                     u161 0E97                       u241 0FEB                       u170 0E7D  
+                     u250 0FF1                       u171 0E7C                       u251 0FF0  
+                     u235 0FCA                       u180 0EEB                       u181 0EEA  
+                     u245 0FE8                       u190 0F24                       u191 0F23  
+                     u185 0EE7                       u277 0F3D                       u287 0FB7  
+                     _red 0022                       wreg 0009                      _ADON 04E8  
+             main@leftNum 004C                      _LATA 010C                      _LATB 010D  
+                    _LATC 010E                      _WPUA 020C                      _WPUB 020D  
+                    _blue 0020                      _main 0EEC                      _leds 0023  
+                    fsr0h 0005                      fsr1h 0007                      indf0 0000  
+                    fsr0l 0004                      indf1 0001                      fsr1l 0006  
+                    btemp 007E               main@prevNum 0046                      start 0803  
+                   ?_main 0070                     _TRISA 008C                     _TRISB 008D  
+                   _TRISC 008E                     _green 0021                     main@i 0048  
+             ?_OSC_config 0070                     status 0003                     wtemp0 007E  
+     neopixel_send@colour 0071           __initialization 0FF5              __end_of_main 0FF5  
+        ?_neopixel_fill_a 0073                    ??_main 007B                    _ADCON0 009D  
+                  _ADCON1 009E                    _ADCON2 009F                    _ACTCON 039B  
+                  _ADRESH 009C                    _ANSELA 018C                    _ANSELB 018D  
+                  _ANSELC 018E                    _OSCCON 0099                    _PLLRDY 04D6  
+     __size_of_OSC_config 000C                    main@i3 004A                    main@i4 0044  
+                  main@ii 0042   __end_of__initialization 0FFD            __pcstackCOMMON 0070  
+           ?_UBMP4_config 0070                __pbssBANK0 0020            ??_UBMP4_config 0070  
+              __pmaintext 0EEC    __size_of_neopixel_send 001B              ??_OSC_config 0070  
+              _greenArray 002E                   __ptext1 0EB8                   __ptext2 0E7E  
+                 __ptext3 0E99                   __ptext4 0E72        __end_of_OSC_config 0E7E  
+                 clrloop0 0E6D      end_of_initialization 0FFD             _neopixel_send 0E7E  
+               _PORTAbits 000C                 _TRISCbits 008E  __size_of_neopixel_fill_a 0034  
+    __end_of_UBMP4_config 0EB8         neopixel_send@bits 0072            ?_neopixel_send 0070  
+     start_initialization 0FF5                 ___latbits 0002             __pcstackBANK0 0042  
+       ??_neopixel_fill_a 0076           ??_neopixel_send 0070                 _blueArray 0024  
+   __size_of_UBMP4_config 001F                  _LATCbits 010E                 clear_ram0 0E6C  
+            _UBMP4_config 0E99                  _redArray 0038             __size_of_main 0109  
+   neopixel_fill_a@ledNum 0079           main@prevLeftNum 004E           _neopixel_fill_a 0EB8  
+    neopixel_fill_a@green 0074                _OPTION_REG 0095       neopixel_fill_a@blue 0075  
+     neopixel_fill_a@leds 0078                _OSC_config 0E72        neopixel_fill_a@red 0073  

@@ -4499,9 +4499,9 @@ int main(void)
     while(1)
  {
 
-        int prevNum = (9/2)+1;
-        int leftNum = (9/2)+1 -1;
-        int prevLeftNum = (9/2)+1;
+        int prevNum = (9/2);
+        int leftNum = (9/2)-1;
+        int prevLeftNum = (9/2);
 
 
         for (int i = (9/2)+1; i <= (9); i++) {
@@ -4511,19 +4511,19 @@ int main(void)
                 redArray[leftNum]+=1;
                 redArray[prevNum]-=1;
 
-                if (prevLeftNum != (9/2)+1) {
+                if (prevLeftNum != (9/2)) {
                     redArray[prevLeftNum]-=1;
                 }
                 neopixel_fill_a(9, redArray, greenArray, blueArray);
 
-                _delay((unsigned long)((1000)*(48000000/4000000.0)));
+                _delay((unsigned long)((200)*(48000000/4000000.0)));
             }
             prevLeftNum = leftNum;
-            leftNum-=1;
+            leftNum--;
             prevNum = i;
 
         }
-        leftNum = -1;
+        leftNum = 0;
         prevLeftNum = -1;
         for (int i3 = 9; i3 >= (9/2)+1; i3--) {
             for (int i4 = 0; i4 < 255-(255%1); i4++) {
@@ -4534,16 +4534,16 @@ int main(void)
 
                 redArray[prevNum]-=1;
 
-                if (prevLeftNum != (9/2)+1) {
+                if (prevLeftNum != (9/2)) {
 
                     redArray[prevLeftNum]-=1;
                 }
                 neopixel_fill_a(9, redArray, greenArray, blueArray);
 
-                _delay((unsigned long)((1000)*(48000000/4000000.0)));
+                _delay((unsigned long)((200)*(48000000/4000000.0)));
             }
             prevLeftNum = leftNum;
-            leftNum+=1;
+            leftNum++;
             prevNum = i3;
 
         }
@@ -4556,6 +4556,8 @@ int main(void)
         {
             __asm("reset");
         }
+
+
     }
 }
 

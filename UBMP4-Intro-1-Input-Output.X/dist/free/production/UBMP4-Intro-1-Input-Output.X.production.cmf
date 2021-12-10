@@ -13,16 +13,16 @@
 %PSECTS
 $dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 cinit CODE 0 FF5 FF5 B 2
-text1 CODE 0 EB6 EB6 34 2
-text2 CODE 0 E7C E7C 1B 2
-text3 CODE 0 E97 E97 1F 2
-text4 CODE 0 E70 E70 C 2
-maintext CODE 0 EEA EEA 10B 2
+text1 CODE 0 EB8 EB8 34 2
+text2 CODE 0 E7E E7E 1B 2
+text3 CODE 0 E99 E99 1F 2
+text4 CODE 0 E72 E72 C 2
+maintext CODE 0 EEC EEC 109 2
 cstackCOMMON COMMON 1 70 70 E 1
 cstackBANK0 BANK0 1 42 42 E 1
 bssBANK0 BANK0 1 20 20 22 1
-clrtext CODE 0 E6A E6A 6 2
-$C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.o
+clrtext CODE 0 E6C E6C 6 2
+$C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.o
 init CODE 0 803 803 1 2
 reset_vec CODE 0 800 800 3 2
 end_init CODE 0 804 804 2 2
@@ -55,9 +55,9 @@ BANK6 320-36F 1
 BANK7 3A0-3EF 1
 BANK8 420-46F 1
 BANK9 4A0-4EF 1
-CONST 806-E69 2
+CONST 806-E6B 2
 CONST 1000-1FFF 2
-ENTRY 806-E69 2
+ENTRY 806-E6B 2
 ENTRY 1000-1FFF 2
 IDLOC 8000-8003 2
 SFR10 500-51F 1
@@ -83,7 +83,7 @@ SFR29 E80-EEF 1
 SFR30 F00-F6F 1
 SFR31 F80-FEF 1
 STACK 2030-23EF 1
-CODE 806-E69 2
+CODE 806-E6B 2
 CODE 1000-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
@@ -100,9 +100,9 @@ BANK11 5A0-5EF 1
 BANK12 620-64F 1
 BIGRAM 2000-23EF 1
 CONFIG 8007-8008 2
-STRCODE 806-E69 2
+STRCODE 806-E6B 2
 STRCODE 1000-1FFF 2
-STRING 806-E69 2
+STRING 806-E6B 2
 STRING 1000-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -118,82 +118,82 @@ STRING 1000-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
-FF5 cinit CODE >737:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.s
-FF5 cinit CODE >740:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.s
-FF5 cinit CODE >782:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.s
-FF6 cinit CODE >783:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.s
-FF7 cinit CODE >784:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.s
-FF8 cinit CODE >785:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.s
-FF9 cinit CODE >786:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.s
-FFA cinit CODE >787:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.s
-FFD cinit CODE >793:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.s
-FFD cinit CODE >795:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.s
-FFE cinit CODE >796:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.s
-E70 text4 CODE >21:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
-E70 text4 CODE >23:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
-E73 text4 CODE >24:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
-E76 text4 CODE >25:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
-E7B text4 CODE >26:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
-E97 text3 CODE >29:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
-E97 text3 CODE >31:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
-E9A text3 CODE >33:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
-E9C text3 CODE >34:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
-E9F text3 CODE >35:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
-EA1 text3 CODE >36:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
-EA4 text3 CODE >38:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
-EA6 text3 CODE >39:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
-EA9 text3 CODE >40:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
-EAB text3 CODE >41:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
-EAE text3 CODE >43:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
-EB0 text3 CODE >44:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
-EB3 text3 CODE >45:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
-EB5 text3 CODE >48:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
-E7C text2 CODE >128:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-E7D text2 CODE >130:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-E81 text2 CODE >132:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-E83 text2 CODE >133:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-E87 text2 CODE >135:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-E88 text2 CODE >136:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-E88 text2 CODE >137:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-E89 text2 CODE >138:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-E8B text2 CODE >139:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-E8F text2 CODE >140:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-E96 text2 CODE >141:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-EB6 text1 CODE >110:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-EB7 text1 CODE >111:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-EB9 text1 CODE >112:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-EBA text1 CODE >113:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-EC4 text1 CODE >114:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-ECE text1 CODE >115:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-ED8 text1 CODE >116:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-EE1 text1 CODE >116:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-EE5 text1 CODE >116:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-EE9 text1 CODE >117:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-EEA maintext CODE >39:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-EEA maintext CODE >42:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-EED maintext CODE >43:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-EF0 maintext CODE >50:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-EF5 maintext CODE >51:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-EF9 maintext CODE >52:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-EFD maintext CODE >55:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-F01 maintext CODE >56:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-F04 maintext CODE >58:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-F0D maintext CODE >59:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-F15 maintext CODE >60:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-F1B maintext CODE >62:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-F22 maintext CODE >63:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-F28 maintext CODE >65:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-F38 maintext CODE >67:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-F40 maintext CODE >68:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-F4A maintext CODE >68:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-F4E maintext CODE >68:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-F52 maintext CODE >69:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-F57 maintext CODE >70:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-F5B maintext CODE >71:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-F5F maintext CODE >73:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-F68 maintext CODE >73:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-F6C maintext CODE >73:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-F70 maintext CODE >74:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+FF5 cinit CODE >737:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.s
+FF5 cinit CODE >740:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.s
+FF5 cinit CODE >782:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.s
+FF6 cinit CODE >783:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.s
+FF7 cinit CODE >784:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.s
+FF8 cinit CODE >785:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.s
+FF9 cinit CODE >786:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.s
+FFA cinit CODE >787:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.s
+FFD cinit CODE >793:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.s
+FFD cinit CODE >795:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.s
+FFE cinit CODE >796:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.s
+E72 text4 CODE >21:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
+E72 text4 CODE >23:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
+E75 text4 CODE >24:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
+E78 text4 CODE >25:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
+E7D text4 CODE >26:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
+E99 text3 CODE >29:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
+E99 text3 CODE >31:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
+E9C text3 CODE >33:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
+E9E text3 CODE >34:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
+EA1 text3 CODE >35:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
+EA3 text3 CODE >36:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
+EA6 text3 CODE >38:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
+EA8 text3 CODE >39:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
+EAB text3 CODE >40:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
+EAD text3 CODE >41:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
+EB0 text3 CODE >43:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
+EB2 text3 CODE >44:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
+EB5 text3 CODE >45:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
+EB7 text3 CODE >48:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\UBMP4.c
+E7E text2 CODE >130:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+E7F text2 CODE >132:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+E83 text2 CODE >134:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+E85 text2 CODE >135:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+E89 text2 CODE >137:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+E8A text2 CODE >138:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+E8A text2 CODE >139:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+E8B text2 CODE >140:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+E8D text2 CODE >141:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+E91 text2 CODE >142:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+E98 text2 CODE >143:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+EB8 text1 CODE >112:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+EB9 text1 CODE >113:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+EBB text1 CODE >114:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+EBC text1 CODE >115:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+EC6 text1 CODE >116:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+ED0 text1 CODE >117:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+EDA text1 CODE >118:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+EE3 text1 CODE >118:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+EE7 text1 CODE >118:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+EEB text1 CODE >119:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+EEC maintext CODE >39:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+EEC maintext CODE >42:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+EEF maintext CODE >43:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+EF2 maintext CODE >50:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+EF7 maintext CODE >51:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+EFB maintext CODE >52:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+EFF maintext CODE >55:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+F03 maintext CODE >56:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+F06 maintext CODE >58:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+F0F maintext CODE >59:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+F17 maintext CODE >60:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+F1D maintext CODE >62:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+F24 maintext CODE >63:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+F2A maintext CODE >65:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+F3A maintext CODE >67:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+F42 maintext CODE >68:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+F4C maintext CODE >68:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+F50 maintext CODE >68:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+F54 maintext CODE >69:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+F59 maintext CODE >70:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+F5D maintext CODE >71:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+F61 maintext CODE >73:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+F6A maintext CODE >73:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+F6E maintext CODE >73:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
+F72 maintext CODE >74:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
 F75 maintext CODE >75:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
 F79 maintext CODE >76:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
 F7D maintext CODE >77:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
@@ -215,14 +215,14 @@ FE4 maintext CODE >97:C:\Users\pocrm9060\OneDrive - Waterloo Region District Sch
 FE8 maintext CODE >97:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
 FEC maintext CODE >103:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
 FF1 maintext CODE >105:C:\Users\pocrm9060\OneDrive - Waterloo Region District School Board\Documents\GitHub\Neo Pixel\UBMP4-Intro-1-Input-Output.X\Intro-1-Input-Ouput.c
-E6A clrtext CODE >771:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.s
-E6A clrtext CODE >772:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.s
-E6B clrtext CODE >773:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.s
-E6B clrtext CODE >774:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.s
-E6C clrtext CODE >775:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.s
-E6D clrtext CODE >776:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.s
-E6E clrtext CODE >777:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.s
-E6F clrtext CODE >778:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.s
+E6C clrtext CODE >771:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.s
+E6C clrtext CODE >772:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.s
+E6D clrtext CODE >773:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.s
+E6D clrtext CODE >774:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.s
+E6E clrtext CODE >775:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.s
+E6F clrtext CODE >776:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.s
+E70 clrtext CODE >777:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.s
+E71 clrtext CODE >778:C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -250,19 +250,19 @@ _LATB 10D 0 ABS 0 - dist/free/production\UBMP4-Intro-1-Input-Output.X.production
 _LATC 10E 0 ABS 0 - dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 _WPUA 20C 0 ABS 0 - dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 _WPUB 20D 0 ABS 0 - dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.o
-_main 1DD4 0 CODE 0 maintext dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.o
+_main 1DD8 0 CODE 0 maintext dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 btemp 7E 0 ABS 0 - dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
-start 1006 0 CODE 0 init C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.o
+start 1006 0 CODE 0 init C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.o
 __size_of_main 0 0 ABS 0 - dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 _blueArray 24 0 BANK0 1 bssBANK0 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.o
 wtemp0 7E 0 ABS 0 - dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 __size_of_neopixel_send 0 0 ABS 0 - dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -277,25 +277,25 @@ _ANSELB 18D 0 ABS 0 - dist/free/production\UBMP4-Intro-1-Input-Output.X.producti
 _ANSELC 18E 0 ABS 0 - dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 __size_of_OSC_config 0 0 ABS 0 - dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 neopixel_send@colour 71 0 COMMON 1 cstackCOMMON dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
-__end_of_neopixel_send 1D2E 0 CODE 0 text2 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
+__end_of_neopixel_send 1D32 0 CODE 0 text2 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 main@prevNum 46 0 BANK0 1 cstackBANK0 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
 main@prevLeftNum 4E 0 BANK0 1 cstackBANK0 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
-__end_of_neopixel_fill_a 1DD4 0 CODE 0 text1 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
+__end_of_neopixel_fill_a 1DD8 0 CODE 0 text1 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 neopixel_fill_a@blue 75 0 COMMON 1 cstackCOMMON dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 neopixel_fill_a@leds 78 0 COMMON 1 cstackCOMMON dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 _OPTION_REG 95 0 ABS 0 - dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
-___stackhi 23EF 0 ABS 0 - C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.o
-___stacklo 2030 0 ABS 0 - C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.o
+___stackhi 23EF 0 ABS 0 - C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.o
+___stacklo 2030 0 ABS 0 - C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.o
 neopixel_fill_a@ledNum 79 0 COMMON 1 cstackCOMMON dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 start_initialization 1FEA 0 CODE 0 cinit dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 _OSCCON 99 0 ABS 0 - dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 _PLLRDY 4D6 0 ABS 0 - dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 _TRISCbits 8E 0 ABS 0 - dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
-clear_ram0 1CD4 0 CODE 0 clrtext dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
+clear_ram0 1CD8 0 CODE 0 clrtext dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 __pcstackBANK0 42 0 BANK0 1 cstackBANK0 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
-_neopixel_fill_a 1D6C 0 CODE 0 text1 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.o
+_neopixel_fill_a 1D70 0 CODE 0 text1 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
+___int_sp 0 0 STACK 2 stack C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -426,7 +426,7 @@ __S1 7E 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 _greenArray 2E 0 BANK0 1 bssBANK0 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 __Lintentry 1006 0 CODE 0 intentry -
-reset_vec 1000 0 CODE 0 reset_vec C:\Users\POCRM9~1\AppData\Local\Temp\xcAs23g.o
+reset_vec 1000 0 CODE 0 reset_vec C:\Users\POCRM9~1\AppData\Local\Temp\xcAs8is.o
 __size_of_neopixel_fill_a 0 0 ABS 0 - dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 __Lbank10 0 0 ABS 0 bank10 -
@@ -451,9 +451,9 @@ __Lbank28 0 0 BANK28 1 bank28 -
 __Lbank29 0 0 BANK29 1 bank29 -
 __Lbank30 0 0 BANK30 1 bank30 -
 __Lbank31 0 0 BANK31 1 bank31 -
-__pmaintext 1DD4 0 CODE 0 maintext dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
+__pmaintext 1DD8 0 CODE 0 maintext dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 __Lbigram 0 0 ABS 0 bigram -
-_UBMP4_config 1D2E 0 CODE 0 text3 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
+_UBMP4_config 1D32 0 CODE 0 text3 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 __Lcommon 0 0 ABS 0 common -
 _LATCbits 10E 0 ABS 0 - dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 _redArray 38 0 BANK0 1 bssBANK0 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
@@ -472,14 +472,14 @@ end_of_initialization 1FFA 0 CODE 0 cinit dist/free/production\UBMP4-Intro-1-Inp
 __Hintentry 1006 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
 __Hreset_vec 1006 0 CODE 0 reset_vec -
-_OSC_config 1CE0 0 CODE 0 text4 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
+_OSC_config 1CE4 0 CODE 0 text4 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
 neopixel_fill_a@red 73 0 COMMON 1 cstackCOMMON dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
-__ptext1 1D6C 0 CODE 0 text1 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
-__ptext2 1CF8 0 CODE 0 text2 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
-__ptext3 1D2E 0 CODE 0 text3 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
-__ptext4 1CE0 0 CODE 0 text4 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
-__end_of_UBMP4_config 1D6C 0 CODE 0 text3 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
+__ptext1 1D70 0 CODE 0 text1 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
+__ptext2 1CFC 0 CODE 0 text2 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
+__ptext3 1D32 0 CODE 0 text3 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
+__ptext4 1CE4 0 CODE 0 text4 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
+__end_of_UBMP4_config 1D70 0 CODE 0 text3 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 1000 0 CODE 0 reset_vec -
@@ -487,7 +487,7 @@ __end_of__initialization 1FFA 0 CODE 0 cinit dist/free/production\UBMP4-Intro-1-
 __Lfunctab 0 0 ENTRY 0 functab -
 __Lclrtext 0 0 ABS 0 clrtext -
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
-__end_of_OSC_config 1CF8 0 CODE 0 text4 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
+__end_of_OSC_config 1CFC 0 CODE 0 text4 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 __Hend_init 100C 0 CODE 0 end_init -
 __end_of_main 1FEA 0 CODE 0 maintext dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 neopixel_fill_a@green 74 0 COMMON 1 cstackCOMMON dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
@@ -497,7 +497,7 @@ _TRISB 8D 0 ABS 0 - dist/free/production\UBMP4-Intro-1-Input-Output.X.production
 _TRISC 8E 0 ABS 0 - dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
-_neopixel_send 1CF8 0 CODE 0 text2 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
+_neopixel_send 1CFC 0 CODE 0 text2 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 __initialization 1FEA 0 CODE 0 cinit dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 __pbssBANK0 20 0 BANK0 1 bssBANK0 dist/free/production\UBMP4-Intro-1-Input-Output.X.production.o
 # %SPLITSTAB Section
@@ -526,15 +526,15 @@ __pbssBANK0 20 0 BANK0 1 bssBANK0 dist/free/production\UBMP4-Intro-1-Input-Outpu
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cinit 0 FF5 1FEA B 2
-text1 0 EB6 1D6C 34 2
-text2 0 E7C 1CF8 1B 2
-text3 0 E97 1D2E 1F 2
-text4 0 E70 1CE0 C 2
-maintext 0 EEA 1DD4 10B 2
+text1 0 EB8 1D70 34 2
+text2 0 E7E 1CFC 1B 2
+text3 0 E99 1D32 1F 2
+text4 0 E72 1CE4 C 2
+maintext 0 EEC 1DD8 109 2
 cstackCOMMON 1 70 70 E 1
 reset_vec 0 800 1000 6 2
 bssBANK0 1 20 20 30 1
-clrtext 0 E6A 1CD4 6 2
+clrtext 0 E6C 1CD8 6 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal

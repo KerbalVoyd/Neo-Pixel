@@ -28,7 +28,7 @@ void neopixel_fill(unsigned char leds, unsigned char red, unsigned char green, u
 
 
 #define pixelLength 9
-#define halfLength (pixelLength/2)+1
+#define halfLength (pixelLength/2)
 #define speed 1
 
 unsigned char leds;
@@ -52,7 +52,7 @@ int main(void)
         int prevLeftNum = halfLength;
         // If SW2 is pressed, make a flashy light pattern
 
-        for (int i = halfLength; i <= (pixelLength); i++) {
+        for (int i = halfLength+1; i <= (pixelLength); i++) {
             for (int ii = 0; ii < 255-(255%speed); ii++) {
                 
                 redArray[i]+=speed;
@@ -64,16 +64,16 @@ int main(void)
                 }
                 neopixel_fill_a(pixelLength, redArray, greenArray, blueArray);
                 
-                __delay_us(1000);
+                __delay_us(200);
             }
             prevLeftNum = leftNum;
-            leftNum-=speed;
+            leftNum--;
             prevNum = i;
             
         }
-        leftNum = -1;
+        leftNum = 0;
         prevLeftNum = -1;
-        for (int i3 = pixelLength; i3 >= halfLength; i3--) {
+        for (int i3 = pixelLength; i3 >= halfLength+1; i3--) {
             for (int i4 = 0; i4 < 255-(255%speed); i4++) {
                 
                 redArray[i3]+=speed;
@@ -88,10 +88,10 @@ int main(void)
                 }
                 neopixel_fill_a(pixelLength, redArray, greenArray, blueArray);
                 
-                __delay_us(1000);
+                __delay_us(200);
             }
             prevLeftNum = leftNum;
-            leftNum+=speed;
+            leftNum++;
             prevNum = i3;
             
         }
@@ -104,6 +104,8 @@ int main(void)
         {
             RESET();
         }
+        
+        
     }
 }
 
